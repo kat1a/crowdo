@@ -6,6 +6,7 @@ import { UiModule } from './ui/ui.module';
 import { RegisterModule } from './register/register.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { HomeModule } from './home/home.module';
 
 
 @NgModule({
@@ -17,8 +18,11 @@ import { RouterModule } from '@angular/router';
     BrowserModule,
     UiModule,
     RegisterModule,
+    HomeModule,
     ReactiveFormsModule,
-    RouterModule.forRoot([])
+    RouterModule.forRoot([
+      {path: '' , redirectTo:'/home',pathMatch:'full'}
+    ])
 
   ],
   
