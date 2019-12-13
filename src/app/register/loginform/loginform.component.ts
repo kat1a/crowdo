@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { RegisterformService, Members } from 'src/app/registerform.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -12,9 +14,8 @@ export class LoginformComponent implements OnInit {
     loginForm: FormGroup;
     loading = false;
     submitted = false;
-    
 
-  constructor(private formBuilder: FormBuilder,) { }
+  constructor(private formBuilder: FormBuilder,private registerform: RegisterformService,private router:Router) { }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -35,6 +36,6 @@ export class LoginformComponent implements OnInit {
     if (this.loginForm.invalid) {
         return;
     }
-
+    this.registerform.login(this.loginForm.value).subscribe((i=>this.router.navigate(['home'])));
   }
 }

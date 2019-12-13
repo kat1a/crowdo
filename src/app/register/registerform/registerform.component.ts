@@ -22,10 +22,7 @@ export class RegisterformComponent implements OnInit {
       address: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       username: ['', Validators.required],
-      password: ['', [Validators.required, Validators.minLength(6)]],
-      confirmPassword: ['', Validators.required]
-  }, {
-      validator: MustMatch('password', 'confirmPassword')
+      password: ['', [Validators.required, Validators.minLength(6)]]
   });
   }
   // convenience getter for easy access to form fields

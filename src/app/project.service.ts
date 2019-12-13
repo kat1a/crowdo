@@ -2,9 +2,16 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 export interface Projects{
+  code:string;
   creator:string;
   title:string;
+  category:string;
   description:string;
+  media:string;
+  startDate:Date;
+  endDate:Date;
+  packages:string;
+  numberOfRequested:string;
 }
 @Injectable({
   providedIn: 'root'
