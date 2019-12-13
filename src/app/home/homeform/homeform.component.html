@@ -1,24 +1,24 @@
-<div class="container">
-		<div class="well">
-        <h2 class="text-center">Choose a project</h2>
-        <br>
-        <br>
-        <br>
-          <div class="list-group" *ngFor="let i of Arr(num).fill(1)">
-            <a href="#"> <!--project link-->
-                  <div class="media col-md-3"> <!--image div-->
-                      <figure class="pull-left">
-                          <img class="media-object img-rounded img-responsive"  src="http://placehold.it/350x250" alt="placehold.it/350x250" >
-                      </figure>
-                      <div class="col-md-6"> <!--Title and description-->
-                        <h4 class="list-group-item-heading"> Title Of Project </h4>
-                        <p class="list-group-item-text"> Description Of Project</p>
-                      </div>
-                      <div class="col-md-3 text-center"> <!--button div-->
-                        <button type="button" class="btn btn-primary"> See Details </button>
-                      </div>
+ <div class="container">
+    <div class="well">
+    <h2 class="text-center">Choose a project</h2>
+    <br>
+    <br>
+    <br>
+      <div class="list-group" *ngFor="let project of projects">
+        <a href="#"> <!--project link-->
+              <div class="media col-md-3"> <!--image div-->
+                  <figure class="pull-left">
+                      <img class="media-object img-rounded img-responsive"  src="http://placehold.it/350x250" alt="placehold.it/350x250" >
+                  </figure>
+                  <div class="col-md-6"> <!--Title and description-->
+                    <h4 class="list-group-item-heading"> {{project.title}} </h4>
+                    <p class="list-group-item-text"> {{project.description}}</p>
                   </div>
-             </a>
-            </div>
-		</div>      
-	</div>
+                  <div class="col-md-3 text-center"> <!--button div-->
+                    <button type="button" class="btn btn-primary"> See Details </button>
+                  </div>
+              </div>
+         </a>
+        </div>
+    </div>      
+</div>

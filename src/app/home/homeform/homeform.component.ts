@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProjectService, Projects } from 'src/app/project.service';
 
 @Component({
   selector: 'crowdo-homeform',
@@ -8,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 export class HomeformComponent implements OnInit {
   Arr = Array; //Array type captured in a variable
   num:number = 20;
-  constructor() { }
+  projects: Array<Projects>;
+  constructor(private projectService: ProjectService) { }
 
   ngOnInit() {
+    this.projectService.showProject().subscribe((data)=>{this.projects=data});
   }
 
 }

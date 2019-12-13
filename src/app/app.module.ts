@@ -7,6 +7,7 @@ import { RegisterModule } from './register/register.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HomeModule } from './home/home.module';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { HomeModule } from './home/home.module';
     RegisterModule,
     HomeModule,
     ReactiveFormsModule,
+    HttpClientModule,
     RouterModule.forRoot([
       {path: '' , redirectTo:'/home',pathMatch:'full'}
     ])
