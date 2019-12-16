@@ -21,8 +21,8 @@ export interface Projects {
 })
 export class ProjectService {
 
-  private readonly endpoint = 'http://localhost:64122/crowdo/projects';
-  private readonly endpoint2 = 'http://localhost:64122/crowdo/myprojects';
+  private readonly endpoint = 'http://localhost:52796/crowdo/projects';
+  private readonly endpoint2 = 'http://localhost:52796/crowdo/myprojects';
 
   constructor(private http: HttpClient) { }
 
