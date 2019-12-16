@@ -18,7 +18,7 @@ export interface Projects{
 })
 export class ProjectService {
 
-  private readonly endpoint = 'http://localhost:64122/crowdo/projects';
+  private readonly endpoint = 'http://localhost:52796/crowdo/projects';
   constructor(private http: HttpClient) { }
   showProject(): Observable<Projects[]> {
     return this.http.get<Projects[]>(this.endpoint);  

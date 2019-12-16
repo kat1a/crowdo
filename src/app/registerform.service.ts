@@ -15,8 +15,8 @@ export interface Members{
 })
 export class RegisterformService {
 
-  private readonly endpoint = 'http://localhost:64122/crowdo/signup/member';
-  private readonly endpoint2 = 'http://localhost:64122/crowdo/member/login';
+  private readonly endpoint = 'http://localhost:52796/crowdo/signup/member';
+  private readonly endpoint2 = 'http://localhost:52796/crowdo/member/login';
   constructor(private http: HttpClient) { }
   createMember(member:any): Observable<any> {
       return this.http.post<any>(this.endpoint, member);  
