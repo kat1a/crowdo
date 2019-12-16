@@ -10,10 +10,13 @@ export class HomeformComponent implements OnInit {
 
   Arr = Array; //Array type captured in a variable
   num: number = 20;
-  projects: Array<Projects>;
+  projects: any;
+  allProjects: Array<Projects>;;
   searchTerm: string;
+  activeIndex = 0;
 
   constructor(private projectService: ProjectService) { }
+
   chunk(array, size) {
     const chunkProjects = [];
     let index = 0;
@@ -23,31 +26,31 @@ export class HomeformComponent implements OnInit {
     }
     return chunkProjects;
   }
-  /*chunk(array, size) {
-    let chunkProjects = [];
-    chunkProjects = [];
-
-    while (array.length) {
-      chunkProjects.push(array.splice(0, size));
-
-    }
-    return chunkProjects;
-  }
-  chunk(array, size) {
-    let chunkProjects = [];
-    
-    
-    for (let i = 0; i < array.length; i++) {
-      chunkProjects.push(array.splice(0, size));
-    }
-
-    return chunkProjects;
-}*/
+  
   ngOnInit() {
     // this.projectService.showProject().subscribe((data)=>{this.projects=data});
 
-    this.projectService.showProject().subscribe((data) => { this.projects = this.chunk(data, 3) });
+    this.projectService.showProject().subscribe((data) => { 
+      this.allProjects = data;
+      this.projects = this.chunk(data, 3) 
+    });
 
+  }
+
+  filterProjects() {
+    const regExp = new RegExp(this.searchTerm, 'ig')
+    const filteredProjects = this.allProjects.filter(it => {
+      return it.title.search(regExp) >= 0
+    });
+    this.projects = this.chunk(filteredProjects, 3) 
+  }
+
+  nextItems() {
+    this.activeIndex++;
+  }
+
+  previousItems() {
+    this.activeIndex--;
   }
 
 

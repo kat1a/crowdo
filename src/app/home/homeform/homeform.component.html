@@ -7,7 +7,7 @@
 
     <div class="input-group">
       <input type="text" class="form-control" placeholder="Search project by title or category..."
-        [(ngModel)]="searchTerm" />
+        [(ngModel)]="searchTerm" (ngModelChange)="filterProjects()" />
       <div class="input-group-append">
         <button class="btn btn-primary" type="button">
           <i class="fa fa-search"></i>
@@ -18,43 +18,39 @@
     <br>
     <br>
 
-    <section class="carousel slide" id="myCarousel">
+    <section class="carousel slide" id="myCarousel  ">
 
       <div class="container">
         <div class="row">
           <div class="col-sm-12 text-right mb-4">
-            <a class="btn btn-outline-secondary carousel-control left" href="#myCarousel" data-slide="prev"
-              title="go back">
+            <span class="btn btn-outline-secondary carousel-control left" (click)="previousItems()" title="go back">
               <i class="fa fa-lg fa-chevron-left"></i>
-            </a>
-            <a class="btn btn-outline-secondary carousel-control right" href="#myCarousel" data-slide="next"
-              title="more">
+            </span>
+            <span class="btn btn-outline-secondary carousel-control right" (click)="nextItems()" title="more">
               <i class="fa fa-lg fa-chevron-right"></i>
-            </a>
+            </span>
           </div>
         </div>
       </div>
 
-      <div class="row row-equal carousel-item {{ i == 0 ? 'active' : '' }} m-t-0"
-        *ngFor="let chunkProjects of projects | projectFilter:searchTerm;let i =index;">
-        <div class="col-sm-4" *ngFor="let project of chunkProjects | projectFilter:searchTerm;">
-          
+      <div class="container p-t-0 m-t-2 carousel-inner ">
+        <div class="row row-equal carousel-item m-t-0" [class.active]="activeIndex==i"
+          *ngFor="let chunkProjects of projects ;let i=index;">
+          <div *ngFor="let project of chunkProjects " class="col-sm-4">
             <div class="card">
-             
               <div class="card-block pt-2">
                 <div class="col-sm-12 text-center card-text">
+                  <img class="card-img-top" src="assets/images/testphoto.jpg" alt="default photo">
                   <h4>{{project.title}}</h4>
                   <br>
-
                   <p>{{project.description}}</p>
                   <a href="#" class="btn btn-primary">See more...</a>
                 </div>
               </div>
             </div>
-         
+          </div>
         </div>
       </div>
     </section>
-
   </div>
 </div>
