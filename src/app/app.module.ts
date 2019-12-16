@@ -9,24 +9,23 @@ import { RouterModule } from '@angular/router';
 import { HomeModule } from './home/home.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ProjectsModule } from './projects/projects.module';
+import { MemberModule } from './member/member.module';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    
-    
+    AppComponent
   ],
   imports: [
     BrowserModule,
+    MemberModule,
     UiModule,
     RegisterModule,
     HomeModule,
     ProjectsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    
     RouterModule.forRoot([
       {path: '' , redirectTo:'/home',pathMatch:'full'}
     ])

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MustMatch } from 'src/app/register/confirmpass/must-match.validator';
+import { Members } from 'src/app/registerform.service';
 
 @Component({
   selector: 'crowdo-editmember',
@@ -10,7 +11,7 @@ import { MustMatch } from 'src/app/register/confirmpass/must-match.validator';
 export class EditmemberComponent implements OnInit {
   editForm: FormGroup;
   submitted = false;
-
+  member : Members;
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {

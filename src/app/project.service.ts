@@ -23,6 +23,8 @@ export class ProjectService {
 
   private readonly endpoint = 'http://localhost:64122/crowdo/projects';
   private readonly endpoint2 = 'http://localhost:64122/crowdo/myprojects';
+  private readonly endpoint3 = 'http://localhost:64122/crowdo/delete/project';
+  private readonly endpoint4 = 'http://localhost:64122/crowdo/edit/project';
 
   constructor(private http: HttpClient) { }
 
@@ -36,5 +38,11 @@ export class ProjectService {
   }
   getUsersProjects(id: number): Observable<Projects[]> {
     return this.http.get<Projects[]>(this.endpoint2 + '/' + id);
+  }
+  deleteProject(id:number): Observable<Projects> {
+    return this.http.delete<Projects>(this.endpoint3 + '/' + id);
+  }
+  editProject(id:number,project:Projects):Observable<Projects> {
+    return this.http.put<Projects>(this.endpoint4 + '/' + id,project);
   }
 }
