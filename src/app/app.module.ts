@@ -8,6 +8,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HomeModule } from './home/home.module';
 import { HttpClientModule } from '@angular/common/http';
+import { ProjectsModule } from './projects/projects.module';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
     UiModule,
     RegisterModule,
     HomeModule,
+    ProjectsModule,
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule.forRoot([

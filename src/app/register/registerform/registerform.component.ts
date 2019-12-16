@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MustMatch } from '../confirmpass/must-match.validator';
 import { RegisterformService } from 'src/app/registerform.service';
 import { Router } from '@angular/router';
 

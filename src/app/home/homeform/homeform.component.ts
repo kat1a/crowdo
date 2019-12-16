@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectService, Projects } from 'src/app/project.service';
+import { FormGroup, FormBuilder } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'crowdo-homeform',
@@ -7,13 +9,16 @@ import { ProjectService, Projects } from 'src/app/project.service';
   styleUrls: ['./homeform.component.scss']
 })
 export class HomeformComponent implements OnInit {
-  Arr = Array; //Array type captured in a variable
-  num:number = 20;
   projects: Array<Projects>;
-  constructor(private projectService: ProjectService) { }
+  constructor(private projectService: ProjectService, private router: Router) {
+  }
 
   ngOnInit() {
-    this.projectService.showProject().subscribe((data)=>{this.projects=data});
+    this.projectService.showProjects().subscribe((data) => { this.projects = data });
+  }
+
+  goToProjectDetails(id: number) {
+    this.router.navigate(['/projects', id])
   }
 
 }

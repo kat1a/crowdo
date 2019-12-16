@@ -36,6 +36,9 @@ export class LoginformComponent implements OnInit {
     if (this.loginForm.invalid) {
         return;
     }
-    this.registerform.login(this.loginForm.value).subscribe((i=>this.router.navigate(['home'])));
+    this.registerform.login(this.loginForm.value).subscribe(user => {
+      localStorage.setItem('memberId', user.memberId.toString())
+      this.router.navigate(['home'])
+    });
   }
 }
