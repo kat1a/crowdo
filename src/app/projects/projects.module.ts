@@ -4,13 +4,23 @@ import { CreateprojectComponent } from './createproject/createproject.component'
 import { EditprojectComponent } from './editproject/editproject.component';
 import { DeleteprojectComponent } from './deleteproject/deleteproject.component';
 import { ViewprojectComponent } from './viewproject/viewproject.component';
+import { Route, RouterModule } from '@angular/router';
+import { ViewprojectsofuserComponent } from './viewprojectsofuser/viewprojectsofuser.component';
 
+const routes: Route[]  = [
+  
+  {path: 'projects/:id', component:ViewprojectComponent},
+  {path: 'user/projects', component:ViewprojectsofuserComponent},
+  {path: 'edit/project/:id',component:EditprojectComponent}
 
+]
 
 @NgModule({
-  declarations: [CreateprojectComponent, EditprojectComponent, DeleteprojectComponent, ViewprojectComponent],
+  declarations: [CreateprojectComponent, EditprojectComponent, DeleteprojectComponent, ViewprojectComponent, ViewprojectsofuserComponent],
   imports: [
-    CommonModule
-  ]
+    CommonModule,
+    RouterModule.forChild(routes)
+  ],
+  exports:[RouterModule]
 })
 export class ProjectsModule { }

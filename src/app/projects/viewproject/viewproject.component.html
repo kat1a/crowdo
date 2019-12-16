@@ -1,1 +1,32 @@
-<p>viewproject works!</p>
+<div class="container" *ngIf="project">
+    <div class="card">
+        <div class="container-fliud">
+            <div class="wrapper row">
+                <div class="preview col-md-6" >
+                    <!--first pic-->
+                    <div class="preview-pic tab-content">
+                      <div class="tab-pane active" id="pic-1"><img src="http://placekitten.com/400/252" /></div>
+                    </div>
+                    <!--second to last pictures-->
+                    <ul class="preview-thumbnail nav nav-tabs">
+                      <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
+                    </ul>
+                </div>
+                <div class="details col-md-6">
+                    <h3 class="product-title">{{project.title}}</h3>
+                    <p class="product-description">{{project.description}}</p>
+                    <h4 class="price">{{project.creator.firstName}} {{project.creator.lastName}}</h4>
+                    <p>{{project.category}}</p>
+                    <p> <strong> Start Date of Project: </strong>{{project.startDate}}</p>
+                    <p> <strong> End Date of Project: </strong>{{project.startDate}}</p>
+                    <!--<p> <strong> Packages: </strong>{{project.Packages}}</p> -->
+                    <!-- gia to progress-->
+                    <!--<p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p> -->
+                    <div class="action">
+                        <button class="btn btn-primary" type="button" (click)="fundAproject(project.projectId)">Fund</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
