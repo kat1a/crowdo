@@ -1,7 +1,57 @@
-a.list-group-item {
-    height:auto;
-    min-height:220px;
+/* Add application styles & imports to this file! */
+
+/* equal card height */
+.row-equal > div[class*='col-'] {
+    display: flex;
+    flex: 1 0 auto;
 }
-a.list-group-item.active small {
-    color:#fff;
+.row-equal .card {
+   width: 100%;
+}
+/* ensure equal card height inside carousel */
+.carousel-inner>.row-equal.active,
+.carousel-inner>.row-equal.next,
+.carousel-inner>.row-equal.prev {
+    display: flex;
+}
+/* prevent flicker during transition */
+.carousel-inner>.row-equal.active.left,
+.carousel-inner>.row-equal.active.right {
+    opacity: 0.5;
+    display: flex;
+}
+/* control image height */
+.card-img-top-250 {
+    max-height: 250px;
+    overflow:hidden;
+}
+.card-header{color:dodgerblue}
+.modal-backdrop.show {
+    opacity:0;
+}
+
+.one {
+    width: 231px;
+    height: 410px;
+    position: relative;
+    display: inline-block;
+}
+.one .two {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99;
+}
+.one:hover .two {
+    display: inline;
+}
+
+.text-muted {
+    color: #fff!important;
+}
+.card-footer {
+    padding: .75rem 1.25rem;
+    background-color:#343A40;
+    border-top: 1px solid #343A40;
 }
