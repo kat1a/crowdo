@@ -1,24 +1,29 @@
-
+<!-------------------------------------------
 <div class="container" *ngIf="member">
+    <br>
+    <br>
+    <br>
+    <br>
     <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-6">
+        <div class="col-sm-12 col-sm-6 col-md-6">
             <div class="well well-sm">
                 <div class="row">
-                    <div class="col-sm-6 col-md-4">
-                        <img src="http://placehold.it/380x500" alt="" class="img-rounded img-responsive" />
+                    <div class="col-sm-3 col-md-12">
+                        <img src="http://placehold.it/150x150" alt="" class="img-rounded img-responsive" />
                     </div>
                     <div class="col-sm-6 col-md-8">
-                        <h4>{{member.firstName}}{{member.lastName}}</h4>
+                        <h4>{{member.firstName}} {{member.lastName}}</h4>
                         <h6>{{member.username}}</h6>
-                        <small><cite title="San Francisco, USA">{{member.address}} <i class="glyphicon glyphicon-map-marker">
-                        </i></cite></small>
+                        <small><cite title="San Francisco, USA"><i class="fa fa-map-marker"></i> {{member.address}} 
+                        </cite></small>
                         <p>
-                            <i class="glyphicon glyphicon-envelope"></i>{{member.email}}
-                            <br />
-                        <!-- Split button -->
+                            <i class="fa fa-envelope"></i> xxxx.xxxxxx@gmai.com{{member.email}}
+                            <br>
+                            <br>
+                        
                         <div class="btn-group">
-                            <button type="button" class="btn btn-success"> Edit Profile</button>
-                            <button type="button" class="btn btn-primary"> Projects</button>
+                            <button type="button" class="btn btn-info"> Edit Profile</button>
+                            <button type="button" class="btn btn-success"> Projects</button>
                             <button type="button" class="btn btn-primary"> Fundings</button>
                         </div>
                     </div>
@@ -27,4 +32,58 @@
         </div>
     </div>
 </div>
-
+-------------------------------------------->
+    <br>
+    <br>
+<div class="page-content page-container" id="page-content" *ngIf="member">
+    <div class="padding">
+        <div class="row container d-flex justify-content-center">
+            <div class="col-xl-12 col-md-12">
+                <div class="card user-card-full">
+                    <div class="row m-l-0 m-r-0">
+                        <div class="col-sm-4 bg-c-lite-green user-profile">
+                            <div class="card-block text-center text-white">
+                                <div class="m-b-25"> <img src="assets/images/defaultMember.png" class="img-radius" alt="User-Profile-Image"> </div>
+                                <h4 class="f-w-600">{{member.firstName}} {{member.lastName}}</h4>
+                                <br>
+                                <br>
+                            <button class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Edit my profile" type="button">Edit my profile <i class="fa fa-edit"></i></button>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="card-block">
+                                <h6 class="m-b-20 p-b-5 b-b-default f-w-600" style="text-align: center;">Information</h6>
+                                <div class="row" style="text-align: center;">
+                                    <div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600"> Email </p>
+                                        <h6 class="text-muted f-w-400"><i class="fa fa-envelope"></i> {{member.email}}</h6>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Address</p>
+                                        <h6 class="text-muted f-w-400"><i class="fa fa-map-marker"></i> {{member.address}}</h6>
+                                    </div>
+                                </div>
+                                <br>
+                                <br>
+                                <br>
+                            
+                                <hr>
+                                <div class="row" style="text-align: center;">
+                                    <div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Projects</p>
+                                        <button class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="See my projects" type="button"> Pr<i class="fa fa-star"></i>jects</button>
+                                    </div>
+                                    <div class="col-sm-6" >
+                                        <p class="m-b-10 f-w-600">Fundings</p>
+                                        <button class="btn btn-success" data-toggle="tooltip" data-placement="top" title="See my fundings" type="button" > Funding<i class="fa fa-dollar"></i></button>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

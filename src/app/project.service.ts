@@ -21,10 +21,10 @@ export interface Projects {
 })
 export class ProjectService {
 
-  private readonly endpoint = 'http://localhost:64122/crowdo/projects';
-  private readonly endpoint2 = 'http://localhost:64122/crowdo/myprojects';
-  private readonly endpoint3 = 'http://localhost:64122/crowdo/delete/project';
-  private readonly endpoint4 = 'http://localhost:64122/crowdo/edit/project';
+  private readonly endpoint = 'http://localhost:52796/crowdo/projects';
+  private readonly endpoint2 = 'http://localhost:52796/crowdo/myprojects';
+  private readonly endpoint3 = 'http://localhost:52796/crowdo/delete/project';
+  private readonly endpoint4 = 'http://localhost:52796/crowdo/edit/project';
 
   constructor(private http: HttpClient) { }
 
