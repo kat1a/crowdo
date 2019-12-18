@@ -1,0 +1,24 @@
+<br>
+<br>
+<div class="container">
+  <h2 class="text-center">The projects I funded</h2>
+  <br>
+  <br>
+  <br>
+    <div class="list-group" *ngFor="let funding of fundings">
+      <a> <!--project link-->
+            <div class="media col-md-3"> <!--image div-->
+                <figure class="pull-left">
+                    <img class="media-object img-rounded img-responsive"  src="http://placehold.it/350x250" alt="placehold.it/350x250" >
+                </figure>
+                <div class="col-md-6"> <!--Title and description-->
+                  <h4 class="list-group-item-heading"> {{funding.project.title}} </h4>
+                  <p class="list-group-item-text"> {{funding.project.description}}</p>
+                </div>
+                <div class="col-md-3 text-center"> <!--button div-->
+                  <button class="btn btn-primary" type="button" (click)="goToProjectDetails(funding.project.projectId)"> See Details </button>
+                </div>
+            </div>
+          </a>
+  </div>  
+</div>

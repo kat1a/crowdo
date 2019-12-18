@@ -1,1 +1,60 @@
-<p>editproject works!</p>
+<br>
+<br>
+<br>
+<div class="jumbotron">
+    <div class="col-md-6 offset-md-3">
+        <h2 style="text-align:center;">Edit Project</h2>
+        <form [formGroup]="editProjectForm" (ngSubmit)="onSubmit()">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label>Title</label>
+                    <input type="text" formControlName="title" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.title.errors }"/>
+                    <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
+                        <div *ngIf="f.title.errors.required">Title is required</div>
+                    </div>
+                </div>
+                <div class="form-group col-md-10">
+                    <label>Description</label>
+                    <input type="text" formControlName="description" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.description.errors }" />
+                    <div *ngIf="submitted && f.description.errors" class="invalid-feedback">
+                        <div *ngIf="f.description.errors.required">Description is required</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label>Category</label>
+                    <select formControlName="category">
+                        <option>Uncategorised</option>
+                        <option>Sports</option>
+                        <option>Leisure</option>
+                        <option>Environmental</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <label>Start Date</label>
+                    <input type="text" formControlName="startDate" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.startDate.errors }" />
+                    <div *ngIf="submitted && f.startDate.errors" class="invalid-feedback">
+                        <div *ngIf="f.startDate.errors.required">Start date is required</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label>End Date</label>
+                    <input type="text" formControlName="endDate" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.endDate.errors }" />
+                    <div *ngIf="submitted && f.endDate.errors" class="invalid-feedback">
+                        <div *ngIf="f.endDate.errors.required">End date is required</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-success">Edit</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -13,7 +13,7 @@ export class HomeformComponent implements OnInit {
   Arr = Array; //Array type captured in a variable
   num: number = 20;
   projects: any;
-  allProjects: Array<Projects>;;
+  allProjects: Array<Projects>;
   searchTerm: string;
   activeIndex = 0;
 

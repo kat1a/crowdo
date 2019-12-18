@@ -29,13 +29,11 @@ export class RegisterformComponent implements OnInit {
 
   onSubmit() {
       this.submitted = true;
-      
-      // stop here if form is invalid
+      //stop if invalid
       if (this.signUpForm.invalid) {
           return;
       }
       this.registerform.createMember(this.signUpForm.value).subscribe((i=>this.router.navigate(['home'])));
-      //alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.signUpForm.value))
   }
 
 }

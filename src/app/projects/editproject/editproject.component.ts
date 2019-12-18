@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Projects, ProjectService } from 'src/app/project.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'crowdo-editproject',
@@ -9,12 +10,30 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class EditprojectComponent implements OnInit {
 
-  constructor(private projectService:ProjectService, private activatedRoute: ActivatedRoute, private router:Router) { }
-  project:Projects;
+  constructor(private projectService: ProjectService, private activatedRoute: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) { }
+  editProjectForm: FormGroup;
+  project: Projects;
   ngOnInit() {
+    this.editProjectForm = this.formBuilder.group({
+      title: ['', Validators.required],
+      description: ['', Validators.required],
+      category: ['', Validators.required],
+      startDate: ['', [Validators.required]],
+      endDate: ['', Validators.required]
+    });
     const id = this.activatedRoute.snapshot.params['id']
-    this.projectService.editProject(id,this.project).subscribe(data => this.project=data)
-    this.router.navigate(['user/projects']);
+    this.projectService.getProjectById(id).subscribe(data => { 
+      this.editProjectForm.patchValue(
+        {
+          title: data.title, description: data.description,
+          category: data.category, startDate: data.startDate,
+          endDate: data.endDate
+        })
+    });
+  }
+  onSubmit() {
+    const id = this.activatedRoute.snapshot.params['id'];
+    this.projectService.editProject(id, this.editProjectForm.value).subscribe((i => this.router.navigate(['/user/projects'])));
   }
 
 }

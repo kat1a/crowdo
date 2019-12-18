@@ -4,14 +4,15 @@
     <div class="card">
         <div class="container-fliud">
             <div class="wrapper row">
-                <div class="preview col-md-6" >
+                <div class="preview col-md-6">
                     <!--first pic-->
                     <div class="preview-pic tab-content">
-                      <div class="tab-pane active" id="pic-1"><img src="http://placekitten.com/400/252" /></div>
+                        <div class="tab-pane active" id="pic-1"><img src="http://placekitten.com/400/252" /></div>
                     </div>
                     <!--second to last pictures-->
                     <ul class="preview-thumbnail nav nav-tabs">
-                      <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
+                        <li class="active"><a data-target="#pic-1" data-toggle="tab"><img
+                                    src="http://placekitten.com/200/126" /></a></li>
                     </ul>
                 </div>
                 <div class="details col-md-6">
@@ -21,14 +22,35 @@
                     <p>{{project.category}}</p>
                     <p> <strong> Start Date of Project: </strong>{{project.startDate}}</p>
                     <p> <strong> End Date of Project: </strong>{{project.startDate}}</p>
-                    <!--<p> <strong> Packages: </strong>{{project.Packages}}</p> -->
                     <!-- gia to progress-->
                     <!--<p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p> -->
                     <div class="action">
-                        <button class="btn btn-primary" type="button" (click)="fundAproject(project.projectId)">Fund</button>
+                        <button class="btn btn-primary" type="button" (click)="viewFund()">Fund</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <form class="card" *ngIf="show" [formGroup]="fundForm" (ngSubmit)="onSubmit()">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>Fund Project</label>
+            </div>
+        </div>
+        <div class="form-row">
+            <label>Package:</label>
+            <select formControlName="packageName">
+                <option *ngFor="let package of packages">{{package.code}}</option>
+            </select>
+        </div>
+        <div class="form-row">
+            <label>Number of packages you want to give to this project:</label>
+            <div class="form-group col-md-3">
+                <input type="text" formControlName="numberReq" class="form-control" />
+            </div>
+        </div>
+        <div class="form-row">
+            <button class="btn btn-warning" type="button" (click)="fundAproject(project.projectId)">Fund</button>
+        </div>
+    </form>
 </div>

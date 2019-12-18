@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Members, RegisterformService } from 'src/app/registerform.service';
-import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -16,5 +15,8 @@ export class ShowUserComponent implements OnInit {
     const memberId = localStorage.getItem('memberId');
     this.registerform.getUser(Number(memberId)).subscribe((data) => { this.member = data });
   }
-
+  editUser(){
+    const memberId = localStorage.getItem('memberId');
+    this.router.navigate(['/edit/member', Number(memberId)])
+  }
 }

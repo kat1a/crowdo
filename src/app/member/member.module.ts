@@ -7,7 +7,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Route[]  = [
   
-  {path: 'member', component: ShowUserComponent}
+  {path: 'member', component: ShowUserComponent},
+  {path: 'edit/member/:id',component:EditmemberComponent}
 
 ]
 

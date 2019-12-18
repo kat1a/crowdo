@@ -29,7 +29,7 @@ export class RegisterformService {
     return this.http.post<Members>(this.endpoint2, member);
   }
   editUser(id: number, member: Members): Observable<Members> {
-    return this.http.put<Members>(this.endpoint3 + '/' + id, member);
+    return this.http.put<Members>(`${this.endpoint3}/${id}`, member);
   }
   getUser(id: number): Observable<Members> {
     return this.http.get<Members>(this.endpoint4 + '/' + id);

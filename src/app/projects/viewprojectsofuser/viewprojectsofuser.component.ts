@@ -26,11 +26,8 @@ export class ViewprojectsofuserComponent implements OnInit {
       this.removeProjectFromArray(id)
     })
   }
-
-
   private removeProjectFromArray(projectId) {
     const idx = this.projects.findIndex(it => it.projectId === projectId)
     this.projects.splice(idx, 1)
   }
-
 }
