@@ -22,8 +22,8 @@ export class ViewprojectComponent implements OnInit {
     const id = this.activatedRoute.snapshot.params['id']
     this.projectService.getProjectById(id).subscribe(data => this.project = data)
     this.fundForm = this.formBuilder.group({
-      packageName: ['', Validators.required],
-      numberReq: ['', Validators.required]
+      package: ['', Validators.required],
+      number: ['', Validators.required]
     });
   }
   viewFund() {
@@ -38,11 +38,10 @@ export class ViewprojectComponent implements OnInit {
     // this.funding.package = this.fundForm.get('packageName').value;
     // this.funding.numberReq = this.fundForm.get('numberReq').value;
     this.funding = {
-      fundingId: 8,
-      backer: Number(memberId), 
-      project: id, 
-      package : this.fundForm.get('packageName').value,
-      numberReq:this.fundForm.get('numberReq').value}
+      BackerId: Number(memberId), 
+      ProjectId: id, 
+      Package : this.fundForm.get('package').value,
+      Number:this.fundForm.get('number').value}
     this.fundingsService.fundProject(this.funding).subscribe((data)=>this.funding=data);
     this.router.navigate(['home']);
   }

@@ -5,22 +5,27 @@
   <br>
   <br>
   <br>
-    <div class="list-group" *ngFor="let project of projects">
-      <a> <!--project link-->
-            <div class="media col-md-3"> <!--image div-->
-                <figure class="pull-left">
-                    <img class="media-object img-rounded img-responsive"  src="http://placehold.it/350x250" alt="placehold.it/350x250" >
-                </figure>
-                <div class="col-md-6"> <!--Title and description-->
-                  <h4 class="list-group-item-heading"> {{project.title}} </h4>
-                  <p class="list-group-item-text"> {{project.description}}</p>
-                </div>
-                <div class="col-md-3 text-center"> <!--button div-->
-                  <button class="btn btn-primary" type="button" (click)="goToProjectDetails(project.projectId)"> See Details </button>
-                  <button class="btn btn-success" type="button" (click)="editProject(project.projectId)"> Edit Project </button>
-                  <button class="btn btn-danger" type="button" (click)="deleteProject(project.projectId)"> Delete Project </button>
-                </div>
-            </div>
-          </a>
-  </div>  
+
+  <div class="card-columns">
+    <div class="card" *ngFor="let project of projects" style="width: 13rem;">
+      <div class="card-body">
+        <img class="card-img-top" src="assets\images\icon.png" alt="Image of Project" width="50%"
+          style="text-align: center;">
+        <br>
+        <h5 class="card-title" style="text-align: center;">{{project.title}}</h5>
+        <p class="card-text">{{project.description}}</p>
+      </div>
+      <div class="card-footer" style="text-align: center;">
+        <div class="btn-group">
+          <button class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Info" type="button"
+            (click)="goToProjectDetails(project.projectId)"> <i class="fa fa-info"></i></button>
+          <button class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Edit" type="button"
+            (click)="editProject(project.projectId)"><i class="fa fa-edit"></i></button>
+          <button class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Delete" type="button"
+            (click)="deleteProject(project.projectId)"><i class="fa fa-trash"></i></button>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </div>

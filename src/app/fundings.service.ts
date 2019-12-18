@@ -4,11 +4,10 @@ import { Observable } from 'rxjs';
 import { Members } from './registerform.service';
 
 export interface Funding {
-  fundingId: number;
-  backer: number;
-  project: number;
-  package: string;
-  numberReq: number;
+  BackerId: number;
+  ProjectId: number;
+  Package: string;
+  Number: number;
 }
 
 

@@ -1,19 +1,16 @@
+<!---
 <br>
 <br>
 <div class="container" *ngIf="project">
     <div class="card">
         <div class="container-fliud">
             <div class="wrapper row">
-                <div class="preview col-md-6">
-                    <!--first pic-->
+                <div class="preview col-md-6" >
+                
                     <div class="preview-pic tab-content">
-                        <div class="tab-pane active" id="pic-1"><img src="http://placekitten.com/400/252" /></div>
+                      <div class="tab-pane active" id="pic-1"><img src="assets/images/lamp.png" /></div>
                     </div>
-                    <!--second to last pictures-->
-                    <ul class="preview-thumbnail nav nav-tabs">
-                        <li class="active"><a data-target="#pic-1" data-toggle="tab"><img
-                                    src="http://placekitten.com/200/126" /></a></li>
-                    </ul>
+                   
                 </div>
                 <div class="details col-md-6">
                     <h3 class="product-title">{{project.title}}</h3>
@@ -23,34 +20,104 @@
                     <p> <strong> Start Date of Project: </strong>{{project.startDate}}</p>
                     <p> <strong> End Date of Project: </strong>{{project.startDate}}</p>
                     <!-- gia to progress-->
-                    <!--<p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p> -->
+<!--<p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p> -->
+<!--
                     <div class="action">
                         <button class="btn btn-primary" type="button" (click)="viewFund()">Fund</button>
                     </div>
                 </div>
             </div>
         </div>
+    </div> -->
+
+---------------------------------------------------------------------------->
+
+<div class="page-content page-container" id="page-content" *ngIf="project">
+    <div class="padding">
+        <div class="row container d-flex justify-content-center">
+            <div class="col-xl-12 col-md-12">
+                <div class="card user-card-full">
+                    <div class="row m-l-0 m-r-0">
+                        <div class="col-sm-4 bg-c-lite-green user-profile">
+                            <div class="card-block text-center text-white">
+                                <div class="m-b-25"> <img src="assets/images/defaultProject.png" class="img-radius"
+                                        alt="Project Image"> </div>
+                                <i class="fa fa-star"></i>
+                                <h3 class="f-w-600">{{project.title}}</h3>
+                                <br>
+
+                                <h6>{{project.description}</h6>
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="card-block">
+                            <h5 class="m-b-20 p-b-5 b-b-default f-w-600">Current Status</h5>
+                            <div class="row" style="text-align: center;">
+                                <div class="col-sm-12" >
+                                    <p class="m-b-10 f-w-600"><i class="fa fa-user"></i> Creator</p>
+                                    <h4 class="text-muted f-w-400"><b>{{project.creator.firstName}}
+                                    {{project.creator.lastName}}</b></h4>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <p class="m-b-10 f-w-600"><i class="fa fa-hourglass-start"></i> Start Date</p>
+                                <h5 class="text-muted f-w-400">
+                                    {{project.startDate | date:'mediumDate'}}</h5>
+                            </div>
+
+
+                            <div class="col-sm-6">
+                                <p class="m-b-10 f-w-600"><i class="fa fa-hourglass-end"></i> End Date</p>
+                                <h5 class="text-muted f-w-400">{{project.endDate | date:'mediumDate'}} </h5>
+                            </div>
+
+                        </div>
+                        <br>
+
+                        <div>
+                            <p class="m-b-10 f-w-600"><i class="fa fa-spinner"></i> Progress</p>
+                            <div class="progress">
+
+                                <div class="progress-bar bg-warning" role="progressbar" style="width: 40%;"
+                                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">40%</div>
+                            </div>
+                        </div>
+
+                        <hr>
+                        <div class="action">
+                            <button class="btn btn-success" type="button" (click)="viewFund()">Fund</button>
+                            <br>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <form class="card" *ngIf="show" [formGroup]="fundForm" (ngSubmit)="onSubmit()">
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label>Fund Project</label>
-            </div>
+</div>
+</div>
+<form class="card" *ngIf="show" [formGroup]="fundForm" (ngSubmit)="onSubmit()">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>Fund Project</label>
         </div>
-        <div class="form-row">
-            <label>Package:</label>
-            <select formControlName="packageName">
-                <option *ngFor="let package of packages">{{package.code}}</option>
-            </select>
+    </div>
+    <div class="form-row">
+        <label>Package:</label>
+        <select formControlName="package">
+            <option *ngFor="let package of packages">{{package.code}}</option>
+        </select>
+    </div>
+    <div class="form-row">
+        <label>Number of packages you want to give to this project:</label>
+        <div class="form-group col-md-3">
+            <input type="text" formControlName="number" class="form-control" />
         </div>
-        <div class="form-row">
-            <label>Number of packages you want to give to this project:</label>
-            <div class="form-group col-md-3">
-                <input type="text" formControlName="numberReq" class="form-control" />
-            </div>
-        </div>
-        <div class="form-row">
-            <button class="btn btn-warning" type="button" (click)="fundAproject(project.projectId)">Fund</button>
-        </div>
-    </form>
+    </div>
+    <div class="form-row">
+        <button class="btn btn-warning" type="button" (click)="fundAproject()">Fund</button>
+    </div>
+</form>
 </div>
